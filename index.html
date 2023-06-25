@@ -6,39 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hauled</title>
   <style>
-
-
-  .category {
-    display: inline-block;
-    margin: 10px;
-    padding: 10px;
-    background-color: #333;
-    border: 1px solid #444;
-    border-radius: 4px;
-    transition: all 0.3s ease; /* Added animation transition */
-  }
-
-  .category:hover {
-    transform: scale(1.05); /* Added scale effect on hover */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Added glowing effect on hover */
-  }
-
-
     body {
       background-color: #272822;
       color: #fff;
       font-family: Arial, sans-serif;
       padding: 20px;
     }
- 
+
+    .discount-btn {
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+      float: right; /* Align the button to the far right */
+    }
+
+    .discount-btn:hover {
+      background-color: #555;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
 
     h1 {
       text-align: center;
-      padding-bottom: 20px;
+      margin-right: -200px;
+      margin-top: -60px; /* Increase the margin-top value to move the title higher */
+      font-size: 70px;
     }
 
     nav {
       text-align: center;
+      margin-right: 0px;
       margin-bottom: 20px;
     }
 
@@ -65,30 +65,31 @@
       color: #fff;
       text-decoration: none;
     }
+
     .product a {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
 
-  .product a:hover {
-    background-color: #555;
-  }
+    .product a:hover {
+      background-color: #555;
+    }
 
-  .product-price {
-    font-weight: bold;
-    color: #fff;
-    background-color: #444;
-    padding: 5px;
-    border-radius: 4px;
-    margin-top: 5px;
-  }
+    .product-price {
+      font-weight: bold;
+      color: #fff;
+      background-color: #444;
+      padding: 5px;
+      border-radius: 4px;
+      margin-top: 5px;
+    }
 
-  .product {
+    .product {
       flex: 0 0 200px;
       margin: 10px;
       padding: 10px;
@@ -113,7 +114,7 @@
     .product-price {
       font-weight: bold;
     }
-   
+
     .header h1 {
       animation: headerAnimation 5s infinite;
     }
@@ -122,14 +123,29 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
+    .header-title {
+      text-align: center;
+    }
+
     .search-bar {
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
   width: 300px;
   transition: box-shadow 0.3s ease;
-  color: rgb(22, 22, 22); /* Change the color value here */
+  color: rgb(22, 22, 22);
+  margin-bottom: 10px;
+  margin-right: -200px;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+.search-bar::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
     @media (max-width: 600px) {
@@ -143,6 +159,18 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .header-title {
+      flex: 1;
+      text-align: center;
     }
 
     .category {
@@ -159,20 +187,27 @@
       transform: scale(1.05);
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
+
     #products-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
   </style>
 </head>
 
 <body>
+  <canvas></canvas>
   <header>
     <div class="header">
-      <h1>Hauled</h1>
-      <input type="text" id="search-bar" class="search-bar" placeholder="Search by product name">
+      <div class="header-title">
+        <h1>Hauled</h1>
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search by product name">
+      </div>
+      <button class="discount-btn" onclick="location.href='https://pandabuy.page.link/LHKBYQLXZuTqtw6p9'">
+        DISCOUNT SHIPPING SIGNUP
+      </button>
     </div>
   </header>
 
@@ -198,6 +233,7 @@
 
   <script src="main.js"></script>
   <script>
+    
     let allProducts = [];
 
     function showProductsByCategory(category) {
@@ -284,6 +320,7 @@
     });
 
     initializeProducts();
+    
   </script>
   
   
